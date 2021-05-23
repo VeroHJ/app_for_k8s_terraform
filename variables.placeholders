@@ -1,0 +1,48 @@
+variable "region" {
+  default = "REGION_VALUE"
+}
+
+variable "availability_zone" {
+  default = "ZONE_VALUE"
+}
+
+variable "ami" {
+  default = "AMI_VALUE"
+}
+
+variable "instance_type_master" {
+//  default = "t3.small"
+  default = "EC2_MASTER_VALUE"
+}
+
+variable "instance_type_slave" {
+  default = "EC2_WORKER_VALUE"
+}
+
+variable "vpc_name" {
+  default = "VPC_NAME"
+}
+
+variable "ssh_key_path" {
+  default = "../ansible/ssh/id_rsa.pub"
+}
+
+variable "ssh_key_name" {
+  default = "ec2-ssh-key"
+}
+
+variable "security_group_name" {
+  default = "k8s_security_group"
+}
+
+variable "ec2_iam_role_name" {
+  default = "ec2_iam_role"
+}
+
+variable "iam_role_policy_name" {
+  default = "ec2_iam_role_policy"
+}
+
+variable "iam_instance_profile_name" {
+  default = "ec_instance_profile"
+}
