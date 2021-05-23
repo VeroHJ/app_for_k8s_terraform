@@ -1,0 +1,57 @@
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"> K8S Infrastructure</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>AWS Infrastructure</span>
+        </h6>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a routerLink="/aws-status" routerLinkActive="active" class="nav-link">
+              <i class="fas fa-tachometer-alt"></i> Status
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/aws-build" routerLinkActive="active" class="nav-link">
+              <i class="fas fa-cloud"></i> Build
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/aws-destroy" routerLinkActive="active" class="nav-link">
+              <i class="fas fa-trash-alt"></i> Destroy
+            </a>
+          </li>
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>K8S Cluster</span>
+        </h6>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a routerLink="/k8s-status" routerLinkActive="active" class="nav-link">
+              <i class="fas fa-tachometer-alt"></i> Status
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/k8s-build" routerLinkActive="active" class="nav-link">
+              <i class="fab fa-docker"></i> Build
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

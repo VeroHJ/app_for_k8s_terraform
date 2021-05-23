@@ -1,0 +1,65 @@
+<app-page-title [title]="'AWS Infrastructure - Build'"></app-page-title>
+
+<form [formGroup]="awsForm">
+  <div class="row">
+    <div class="col-md-12 col-lg-6">
+      <div class="mb-3 is-invalid">
+        <label class="form-label is-invalid">Region</label>
+        <select [ngClass]="{'is-invalid': region?.invalid && (region?.dirty || region?.touched)}" formControlName="region" class="form-select">
+          <option value="us-east-1">us-east-1</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-6">
+      <div class="mb-3">
+        <label class="form-label">Zone</label>
+        <select [ngClass]="{'is-invalid': zone?.invalid && (zone?.dirty || zone?.touched)}" formControlName="zone" class="form-select">
+          <option value="us-east-1a">us-east-1a</option>
+          <option value="us-east-1b">us-east-1b</option>
+          <option value="us-east-1c">us-east-1c</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-6">
+      <div class="mb-3">
+        <label class="form-label">AMI</label>
+        <select [ngClass]="{'is-invalid': ami?.invalid && (ami?.dirty || ami?.touched)}" formControlName="ami" class="form-select">
+          <option value="ami-09e67e426f25ce0d7">Ubuntu Server 20.04 LTS - ami-09e67e426f25ce0d7</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-6">
+      <div class="mb-3">
+        <label class="form-label">VPC Name</label>
+        <input [ngClass]="{'is-invalid': vpcName?.invalid && (vpcName?.dirty || vpcName?.touched)}" formControlName="vpcName" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-6">
+      <div class="mb-3">
+        <label class="form-label">EC2 Type (master)</label>
+        <select [ngClass]="{'is-invalid': ec2TypeMaster?.invalid && (ec2TypeMaster?.dirty || ec2TypeMaster?.touched)}" formControlName="ec2TypeMaster" class="form-select">
+          <option value="t3.small">t3.small</option>
+          <option value="t3.medium">t3.medium</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-6">
+      <div class="mb-3">
+        <label class="form-label">EC2 Type (worker)</label>
+        <select [ngClass]="{'is-invalid': ec2TypeWorker?.invalid && (ec2TypeWorker?.dirty || ec2TypeWorker?.touched)}" formControlName="ec2TypeWorker" class="form-select">
+          <option value="t2.micro">t2.micro</option>
+          <option value="t2.small">t2.small</option>
+          <option value="t3.small">t3.small</option>
+          <option value="t3.medium">t3.medium</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-12 col-lg-6 text-center">
+      <button [ngClass]="{'btn-secondary': loading, 'btn-primary': !loading}" (click)="buildInfrastructure()" type="button" class="btn">Build</button>
+    </div>
+  </div>
+</form>
+
+<app-console-output *ngIf="outputMessages" [message]="outputMessages"></app-console-output>

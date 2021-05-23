@@ -1,0 +1,13 @@
+<app-page-title [title]="'AWS Infrastructure - Destroy'"></app-page-title>
+
+<div class="alert alert-danger text-center">
+  <h2 class="alert-heading"><i class="fas fa-exclamation-triangle"></i></h2>
+  <p>Are you sure you want to destroy the AWS Infrastructure?</p>
+  <hr>
+  <button [ngClass]="{'btn-secondary': loading, 'btn-danger': !loading}" (click)="destroyInfrastructure()" type="button" class="btn">Destroy</button>
+</div>
+
+<app-console-output *ngIf="outputMessages"
+                    [message]="outputMessages"
+                    [customClass]="'large'">
+</app-console-output>

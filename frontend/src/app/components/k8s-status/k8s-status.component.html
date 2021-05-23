@@ -1,0 +1,37 @@
+<app-page-title [title]="'Kubernetes Cluster - Status'"></app-page-title>
+
+<form [formGroup]="k8sForm">
+  <div class="row justify-content-center">
+    <div class="col-lg-4">
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <div class="mb-3">
+            <label class="form-label">Master Node IP</label>
+            <input [ngClass]="{'is-invalid': masterIp?.invalid && (masterIp?.dirty || masterIp?.touched)}"
+                   formControlName="masterIp" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-12 col-lg-12 text-center">
+      <button [ngClass]="{'btn-secondary': loading, 'btn-primary': !loading}" (click)="getK8sStatus()" type="button"
+              class="btn">Build Kubernetes Cluster
+      </button>
+    </div>
+  </div>
+</form>
+
+<app-console-output *ngIf="nodesMessages"
+                    [message]="nodesMessages"
+                    [customClass]="'large'"
+                    [output]="'Nodes'">
+</app-console-output>
+
+<app-console-output *ngIf="podsMessages"
+                    [message]="podsMessages"
+                    [customClass]="'large'"
+                    [output]="'Pods'">
+</app-console-output>

@@ -1,0 +1,8 @@
+.console {
+  max-height: 140px;
+  overflow: auto;
+
+  &.large {
+    max-height: 260px;
+  }
+}
