@@ -1,0 +1,5 @@
+[masters]
+master ansible_host=MASTER_IP_VALUE ansible_user=ubuntu
+
+[workers]
+worker ansible_host=WORKER_IP_VALUE ansible_user=ubuntu
